@@ -27,7 +27,7 @@
             Text="導航到下一頁(有強制回應且有導航頁面)(回上頁按鈕程式碼會失效)"
             Command="{Binding GoPage1NaviCommand}"/>
         <Button
-            Text="導航到下一頁(有強制回應且有導航頁面)"
+            Text="導航到下一頁(有強制回應且有導航頁面)(PopModalAsync)"
             Command="{Binding GoPage2NaviCommand}"/>
         <Button
             Text="導航到下兩頁(有強制回應且有導航頁面)(逐頁返回)"
