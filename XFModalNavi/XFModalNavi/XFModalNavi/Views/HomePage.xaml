@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFModalNavi.Views.HomePage"
+             Title="強制回應對話窗測試">
+
+    <StackLayout
+        Orientation="Vertical"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        >
+        <Button
+            Text="導航到下一頁(無強制回應)"
+            Command="{Binding GoPage1Command}"/>
+        <Button
+            Text="導航到下兩頁(無強制回應)"
+            Command="{Binding GoPage2Command}"/>
+        <Button
+            Text="導航到下一頁(有強制回應)"
+            Command="{Binding GoPage1ModalCommand}"/>
+        <Button
+            Text="導航到下兩頁(有強制回應)"
+            Command="{Binding GoPage2ModalCommand}"/>
+        <Button
+            Text="導航到下一頁(有強制回應且有導航頁面)(回上頁按鈕程式碼會失效)"
+            Command="{Binding GoPage1NaviCommand}"/>
+        <Button
+            Text="導航到下一頁(有強制回應且有導航頁面)"
+            Command="{Binding GoPage2NaviCommand}"/>
+        <Button
+            Text="導航到下兩頁(有強制回應且有導航頁面)(逐頁返回)"
+            Command="{Binding GoPage3NaviCommand}"/>
+        <Button
+            Text="導航到下兩頁(有強制回應且有導航頁面)(全部返回)"
+            Command="{Binding GoPage4NaviCommand}"/>
+    </StackLayout>
+
+</ContentPage>
