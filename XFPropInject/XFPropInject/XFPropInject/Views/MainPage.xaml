@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFPropInject.Views.MainPage"
+             Title="Unity IoC 三種相依性注入用法">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="{Binding ConstructorInjection}" />
+        <Label Text="{Binding PropertyInjection}" />
+        <Label Text="{Binding MethodInjection}" />
+    </StackLayout>
+
+</ContentPage>
