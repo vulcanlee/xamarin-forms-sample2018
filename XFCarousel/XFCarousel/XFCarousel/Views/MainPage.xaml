@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Class="XFCarousel.Views.MainPage"
+             Title="旋轉木馬控制項使用範例">
+
+    <Grid
+        >
+        <cv:CarouselViewControl
+            WidthRequest="300" HeightRequest="400"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            ItemsSource="{Binding MyItemsSource}"
+            ShowArrows="true"
+            ShowIndicators="true"
+            Position="{Binding MyPosition}"
+            Orientation="Horizontal"
+            >
+            <cv:CarouselViewControl.Behaviors>
+                <behaviors:EventToCommandBehavior
+                    EventName="PositionSelected"
+                    Command="{Binding MyPositionSelectedCommand}"/>
+            </cv:CarouselViewControl.Behaviors>
+            <cv:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        >
+                        <BoxView                            
+                            Color="{Binding Background}"/>
+                        <Label
+                            HorizontalOptions="Center" VerticalOptions="Start"
+                            Text="{Binding Name}"/>
+                        <Image
+                            HorizontalOptions="Center" VerticalOptions="Center"
+                            WidthRequest="200" HeightRequest="300"
+                            Aspect="AspectFit"
+                            Source="{Binding ImageUrl}"/>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
+
+        <Label
+            HorizontalOptions="Center" VerticalOptions="End"
+            FontSize="30"
+            Text="{Binding Hint}"/>
+    </Grid>
+
+</ContentPage>
