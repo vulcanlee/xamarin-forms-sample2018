@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:prism = "clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel= "True"
+             x:Class="XFMulSelLV.Views.MainPage"
+             Title="集合資料多選">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="結果"
+                     Command="{Binding ShowResultCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Label Text="{Binding Title}"/>
+        <ListView
+            Margin="0,20,0,0"
+            ItemsSource="{Binding PeopleCollection}"
+            SelectedItem="{Binding PersonSelected}"
+            HasUnevenRows="True"
+            SeparatorVisibility="None"
+            >
+            <ListView.Behaviors>
+                <Behaviors:EventToCommandBehavior
+                    EventName="ItemTapped"
+                    Command="{Binding PersonTappedCommand}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <BoxView Color="LightGray"/>
+                            <BoxView Color="LightGreen"
+                                     IsVisible="{Binding IsSelected}"/>
+                            <StackLayout
+                                Orientation="Vertical"
+                                HorizontalOptions="Fill" VerticalOptions="Start"
+                                >
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="30"
+                                    />
+                                <Label
+                                    Text="{Binding Age}"
+                                    FontSize="20"
+                                    />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>
