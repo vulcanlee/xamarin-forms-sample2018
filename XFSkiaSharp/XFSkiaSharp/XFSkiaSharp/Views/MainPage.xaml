@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="XFSkiaSharp.Views.MainPage"
+             Title="SkiaSharp 練習">
+
+    <StackLayout
+        Orientation="Vertical"
+        >
+        <Label
+            x:Name="label1"/>
+        <Label
+            x:Name="label2"/>
+        <Label
+            x:Name="label3"/>
+        <StackLayout 
+            Orientation="Horizontal"
+            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+            <BoxView
+                x:Name="boxview"
+                Color="LightBlue"
+                WidthRequest="80" HeightRequest="200"/>
+
+            <skia:SKCanvasView
+                x:Name="canvasView"
+                WidthRequest="80" HeightRequest="200"
+                PaintSurface="OnCanvasViewPaintSurface"/>
+
+            <skia:SKCanvasView
+                WidthRequest="80" HeightRequest="200"
+                PaintSurface="OnCanvasViewPaintSurfaceScale"/>
+ 
+            <skia:SKCanvasView
+                WidthRequest="80" HeightRequest="200"
+                PaintSurface="OnCanvasViewPaintSurfaceScale2"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
