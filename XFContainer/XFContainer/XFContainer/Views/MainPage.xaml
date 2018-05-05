@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:converters="clr-namespace:XFContainer.Converters"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="XFContainer.Views.MainPage"
+             Title="顯示容器可用容量之形狀顯示">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:SKPaintSurfaceEventArgsConverter x:Key="SKPaintSurfaceEventArgsConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid
+        HorizontalOptions="Center" VerticalOptions="Center"
+        >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+  
+        <Grid
+            >
+            <BoxView
+                HorizontalOptions="Start" VerticalOptions="Start"
+                WidthRequest="100" HeightRequest="300"
+                Color="Black"/>
+            <BoxView
+                Margin="3,3"
+                HorizontalOptions="Start" VerticalOptions="Start"
+                WidthRequest="94" HeightRequest="294"
+                Color="White"/>
+            <BoxView
+                Margin="3,3"
+                HorizontalOptions="Start" VerticalOptions="End"
+                WidthRequest="94" HeightRequest="{Binding BoxViewContainerHeight}"
+                Color="LightSkyBlue"/>
+
+        </Grid>
+
+        <Slider
+            Grid.Row="1" Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Minimum="0" Maximum="100"
+            Value="{Binding BoxViewValue}">
+            <Slider.Behaviors>
+                <behavior:EventToCommandBehavior
+                    EventName="ValueChanged"
+                    Command="{Binding BoxViewValueChangedCommand}"
+                    />
+            </Slider.Behaviors>            
+        </Slider>
+
+        <skia:SKCanvasView
+            x:Name="skCanvasView"
+            Grid.Row="0" Grid.Column="2"
+            HorizontalOptions="Start" VerticalOptions="Start"
+            WidthRequest="100" HeightRequest="300"
+            >
+            <skia:SKCanvasView.Behaviors>
+                <behavior:EventToCommandBehavior
+                    EventName="PaintSurface"
+                    Command="{Binding PaintSurfaceCommand}"
+                    EventArgsConverter="{StaticResource SKPaintSurfaceEventArgsConverter}"
+                    />
+            </skia:SKCanvasView.Behaviors>
+        </skia:SKCanvasView>
+        <Label
+            Grid.Row="2" Grid.Column="0"
+            Text="使用 BoxView 來實作"/>
+        <Label
+            Grid.Row="2" Grid.Column="2"
+            Text="使用 SkiaSharp 來實作"/>
+    </Grid>
+
+</ContentPage>
