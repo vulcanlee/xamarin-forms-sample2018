@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:XFSkiaMVVM"
+             x:Class="XFSkiaMVVM.Views.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SKPaintSurfaceEventArgsConverter x:Key="SKPaintSurfaceEventArgsConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView
+        >
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <BoxView
+                Color="Black"
+                WidthRequest="200" HeightRequest="200"/>
+            <skia:SKCanvasView
+                BackgroundColor="Black"
+                IgnorePixelScaling="True" 
+                WidthRequest="200" HeightRequest="200"
+                >
+                <skia:SKCanvasView.Behaviors>
+                    <behavior:EventToCommandBehavior
+                        EventName="PaintSurface"
+                        Command="{Binding PaintSurfaceCommand}"
+                        EventArgsConverter="{StaticResource SKPaintSurfaceEventArgsConverter}"
+                    />
+                </skia:SKCanvasView.Behaviors>
+            </skia:SKCanvasView>
+            <skia:SKCanvasView
+                BackgroundColor="Black"
+                IgnorePixelScaling="False" 
+                WidthRequest="200" HeightRequest="200"
+                >
+                <skia:SKCanvasView.Behaviors>
+                    <behavior:EventToCommandBehavior
+                        EventName="PaintSurface"
+                        Command="{Binding PaintSurfaceSelfScaleCommand}"
+                        EventArgsConverter="{StaticResource SKPaintSurfaceEventArgsConverter}"
+                        />
+                </skia:SKCanvasView.Behaviors>
+            </skia:SKCanvasView>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
