@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFGeofencing.Views.MainPage"
+             Title="Gefoencing 的練習">
+
+    <StackLayout>
+        <Button Text="取得位置" Command="{Binding GetGPSCommand}"/>
+        <Label Text="{Binding GPSLocation}" />
+    </StackLayout>
+
+</ContentPage>
