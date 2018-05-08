@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFUID.Views.MainPage"
+             Title="取得裝置ID與相關資訊">
+
+    <ScrollView
+        Orientation="Vertical"
+        >
+        <StackLayout >
+            <Button Text="讀取" Command="{Binding GetDeviceInfoCommand}"/>
+            <Label Text="App ID" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.AppId}" FontSize="20" />
+            <Label Text="裝置 ID" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.Id}" FontSize="20" />
+            <Label Text="裝置型號" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.Model }" FontSize="20" />
+            <Label Text="製造廠商" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.Manufacturer }" FontSize="20" />
+            <Label Text="裝置名稱" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.DeviceName }" FontSize="20" />
+            <Label Text="版本" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.Version }" FontSize="20" />
+            <Label Text="App版本" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.AppVersion }" FontSize="20" />
+            <Label Text="系統平台" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.Platform }" FontSize="20" />
+            <Label Text="手機/平板" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.Idiom }" FontSize="20" />
+            <Label Text="裝置/模擬器" TextColor="Gray"/>
+            <Label Text="{Binding DeviceInfo.IsDevice }" FontSize="20" />
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>
