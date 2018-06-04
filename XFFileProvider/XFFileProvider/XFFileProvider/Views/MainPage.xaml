@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFFileProvider.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout
+        >
+        <Button Text="請求授權使用權限" Command="{Binding AskPermissionCommand}"/>
+        <Button Text="開啟PDF檔案" Command="{Binding OpenPDFCommand}"/>
+    </StackLayout>
+
+</ContentPage>
