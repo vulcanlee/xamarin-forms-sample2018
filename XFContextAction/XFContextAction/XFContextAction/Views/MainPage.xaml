@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFContextAction.Views.MainPage"
+             Title="ListView的ContextActions使用範例">
+
+    <ListView
+        x:Name="MyListView"
+        ItemsSource="{Binding MyDatasSource}"
+        SelectedItem="{Binding MyDataSelected}"
+       >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem
+                            IsDestructive="True"
+                            Text="選項1" Command="{Binding BindingContext.Option1Command, Source={x:Reference MyListView}}"
+                            CommandParameter="{Binding .}"/>
+                        <MenuItem
+                            Text="選項2" Command="{Binding BindingContext.Option2Command, Source={x:Reference MyListView}}"
+                            CommandParameter="{Binding .}"/>
+                    </ViewCell.ContextActions>
+                    <StackLayout>
+                        <Label Text="{Binding Title}"
+                           FontSize="30"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
