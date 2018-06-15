@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFMediaPlugin.Views.MainPage"
+             Title="使用 MediaPlugin 進行拍照">
+
+    <StackLayout BackgroundColor="#FFC000">
+        <Image
+            Source="{Binding MyImageSource}" Aspect="AspectFit">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TapCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+    </StackLayout>
+
+</ContentPage>
