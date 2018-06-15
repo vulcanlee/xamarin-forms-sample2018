@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFESFileSystem.Views.MainPage"
+             Title="Xamarin.Essentials： 檔案系統的協助程式">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Entry Text="{Binding Account}"
+               Placeholder="請輸入帳號"/>
+        <Entry Text="{Binding Password}" IsPassword="True"
+               Placeholder="請輸入密碼"/>
+        <StackLayout
+            Orientation="Horizontal">
+            <Button Text="清空" Command="{Binding CleanCommand}"/>
+            <Button Text="儲存" Command="{Binding SaveCommand}"/>
+            <Button Text="讀取" Command="{Binding ReadCommand}"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
