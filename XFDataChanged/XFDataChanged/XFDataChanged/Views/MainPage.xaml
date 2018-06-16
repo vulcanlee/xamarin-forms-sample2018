@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFDataChanged.Views.MainPage"
+             Title="Switch 控制項的資料異動偵測與設計方法">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <StackLayout Orientation="Horizontal">
+            <Label Text="選項 1"/>
+            <Switch IsToggled="{Binding Option1}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="選項 2"/>
+            <Switch IsToggled="{Binding Option2}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="選項 3"/>
+            <Switch IsToggled="{Binding Option3}"/>
+        </StackLayout>
+
+        <Label Text="{Binding YourChoice, StringFormat='你選擇的是 {0}'}"/>
+    </StackLayout>
+
+</ContentPage>
