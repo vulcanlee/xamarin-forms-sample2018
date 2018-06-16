@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFESDeviceInformation.Views.MainPage"
+             Title="Device Information 裝置資訊">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Label Text="{Binding Model, StringFormat='DeviceInfo.Model : {0}'}"/>
+        <Label Text="{Binding Manufacturer, StringFormat='DeviceInfo.Manufacturer : {0}'}"/>
+        <Label Text="{Binding Name, StringFormat='DeviceInfo.Name : {0}'}"/>
+        <Label Text="{Binding VersionString, StringFormat='DeviceInfo.VersionString : {0}'}"/>
+        <Label Text="{Binding Platform, StringFormat='DeviceInfo.Platform : {0}'}"/>
+        <Label Text="{Binding Idiom, StringFormat='DeviceInfo.Idiom : {0}'}"/>
+        <Label Text="{Binding DeviceType, StringFormat='DeviceInfo.DeviceType : {0}'}"/>
+    </StackLayout>
+
+</ContentPage>
