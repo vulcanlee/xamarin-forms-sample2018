@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFESDeviceDisplay.Views.MainPage"
+             Title="Device Display Information 裝置顯示的資訊">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Label Text="{Binding Orientation, StringFormat='Orientation : {0}'}" FontSize="20"/>
+        <Label Text="{Binding Rotation, StringFormat='Rotation : {0}'}" FontSize="20"/>
+        <Label Text="{Binding Width, StringFormat='Width : {0}'}" FontSize="20"/>
+        <Label Text="{Binding Height, StringFormat='Height : {0}'}" FontSize="20"/>
+        <Label Text="{Binding Density, StringFormat='Density : {0}'}" FontSize="20"/>
+        <Button Text="Refresh" Command="{Binding RefreshCommand}"/>
+    </StackLayout>
+
+</ContentPage>
