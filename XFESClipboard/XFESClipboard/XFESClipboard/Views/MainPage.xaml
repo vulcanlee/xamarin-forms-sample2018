@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFESClipboard.Views.MainPage"
+             Title="Clipboard 剪貼簿">
+
+    <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LabelTapCommand}"
+                                      CommandParameter="Welcome to Xamarin Forms and Prism!"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Entry Text="{Binding MyEntry}"/>
+        <Button Text="取出剪貼簿內文字" Command="{Binding RetriveClipboardCommand}"/>
+    </StackLayout>
+
+</ContentPage>
