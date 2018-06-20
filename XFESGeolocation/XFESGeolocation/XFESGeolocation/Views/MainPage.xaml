@@ -7,6 +7,11 @@
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Label Text="{Binding YourLocation}"/>
+        <Label Text="GeolocationAccuracy"/>
+        <Picker Title="請選擇取得定位位置精確度"
+                ItemsSource="{Binding GeolocationAccuracySource}"
+                ItemDisplayBinding="{Binding Name}" 
+                SelectedItem="{Binding GeolocationAccuracySelected}"/>
         <Button Text="取得定位位置" Command="{Binding GetLocationCommand}"/>
         <Button Text="取消" Command="{Binding CancelLocationCommand}"
                 IsVisible="{Binding GetLocation}"/>
