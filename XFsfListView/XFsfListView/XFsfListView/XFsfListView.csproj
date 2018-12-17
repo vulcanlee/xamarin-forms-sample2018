@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\DragIndicator.png" />
+    <None Remove="Images\Pizza0.jpg" />
+    <None Remove="Images\Pizza1.jpg" />
+    <None Remove="Images\Pizza10.jpg" />
+    <None Remove="Images\Pizza11.jpg" />
+    <None Remove="Images\Pizza12.jpg" />
+    <None Remove="Images\Pizza13.jpg" />
+    <None Remove="Images\Pizza14.jpg" />
+    <None Remove="Images\Pizza15.jpg" />
+    <None Remove="Images\Pizza16.jpg" />
+    <None Remove="Images\Pizza17.jpg" />
+    <None Remove="Images\Pizza2.jpg" />
+    <None Remove="Images\Pizza3.jpg" />
+    <None Remove="Images\Pizza4.jpg" />
+    <None Remove="Images\Pizza5.jpg" />
+    <None Remove="Images\Pizza6.jpg" />
+    <None Remove="Images\Pizza7.jpg" />
+    <None Remove="Images\Pizza8.jpg" />
+    <None Remove="Images\Pizza9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\DragIndicator.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Pizza0.jpg" />
+    <EmbeddedResource Include="Images\Pizza1.jpg" />
+    <EmbeddedResource Include="Images\Pizza10.jpg" />
+    <EmbeddedResource Include="Images\Pizza11.jpg" />
+    <EmbeddedResource Include="Images\Pizza12.jpg" />
+    <EmbeddedResource Include="Images\Pizza13.jpg" />
+    <EmbeddedResource Include="Images\Pizza14.jpg" />
+    <EmbeddedResource Include="Images\Pizza15.jpg" />
+    <EmbeddedResource Include="Images\Pizza16.jpg" />
+    <EmbeddedResource Include="Images\Pizza17.jpg" />
+    <EmbeddedResource Include="Images\Pizza2.jpg" />
+    <EmbeddedResource Include="Images\Pizza3.jpg" />
+    <EmbeddedResource Include="Images\Pizza4.jpg" />
+    <EmbeddedResource Include="Images\Pizza5.jpg" />
+    <EmbeddedResource Include="Images\Pizza6.jpg" />
+    <EmbeddedResource Include="Images\Pizza7.jpg" />
+    <EmbeddedResource Include="Images\Pizza8.jpg" />
+    <EmbeddedResource Include="Images\Pizza9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveXAML" Version="2.1.58" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="16.3.0.36" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="16.3.0.36" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
+  </ItemGroup>
+
+</Project>

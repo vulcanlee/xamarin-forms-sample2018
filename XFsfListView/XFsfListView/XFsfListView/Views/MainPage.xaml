@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:ImgExtension="clr-namespace:XFsfListView.MarkupExtensions"
+             xmlns:converters="clr-namespace:XFsfListView.Converters"
+             x:Class="XFsfListView.Views.MainPage"
+             Title="{Binding Title}"
+             x:Name="ThisPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageSourceConverter x:Key="ImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <pulltoRefresh:SfPullToRefresh
+        ProgressBackgroundColor="#428BCA" ProgressStrokeColor="White"
+        RefreshContentHeight="150" RefreshContentWidth="150" 
+        TransitionMode="SlideOnTop" IsRefreshing="{Binding IsRefreshing}"
+        >
+        <pulltoRefresh:SfPullToRefresh.Behaviors>
+            <behavior:EventToCommandBehavior
+                EventName="Refreshing"
+                Command="{Binding RefreshingCommand}"/>
+        </pulltoRefresh:SfPullToRefresh.Behaviors>
+        <pulltoRefresh:SfPullToRefresh.PullableContent>
+            <Grid>
+                <syncfusion:SfListView 
+                    x:Name="ThisSfListView"
+                    ItemsSource="{Binding Items}"
+                    ItemSize="200"
+                    AutoFitMode="Height"
+                    SelectionMode="SingleDeselect"
+                    ItemSpacing="2"
+                    FocusBorderColor="Green"
+                    FocusBorderThickness="3"
+                    SelectionBackgroundColor="#3369ea7a"
+                    AllowSwiping="True"
+                    LoadMoreOption="Auto"
+                    LoadMoreCommand="{Binding LoadMoreItemsCommand}"
+                    IsBusy="{Binding IsBusy}"
+                    DragStartMode="OnDragIndicator"
+                    >
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                        RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image 
+                                    Grid.Row="0" Grid.Column="0"
+                                    Aspect="AspectFill"
+                                    Source="{Binding PizzaImage, Converter={StaticResource ImageSourceConverter}}"/>
+                                <StackLayout
+                                    Grid.Row="0" Grid.Column="1"
+                                    Orientation="Vertical"
+                                    >
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontSize="24"/>
+                                    <Label
+                                        Text="{Binding Description}"/>
+                                    <Label
+                                        Text="{Binding Price}"/>
+                                </StackLayout>
+                                <Grid
+                                    Grid.Row="0" Grid.Column="1"
+                                    HorizontalOptions="End" VerticalOptions="Center"
+                                    IsVisible="{Binding BindingContext.IsReorder, Source={Reference ThisPage}}"
+                                    Margin="0,0,10,0"
+                                    >
+                                    <Image 
+                                        Aspect="AspectFill" 
+                                        Source="{Binding DragIndicator, Converter={StaticResource ImageSourceConverter}}"/>
+                                    <syncfusion:DragIndicatorView 
+                                        ListView="{Reference ThisSfListView}"
+                                        />
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                    <syncfusion:SfListView.RightSwipeTemplate>
+                        <DataTemplate >
+                            <Grid BackgroundColor="#009EDA" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <BoxView Color="BlueViolet" HeightRequest="28" WidthRequest="28"/>
+                                <Label Text="刪除" TextColor="White" FontSize="30"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <!--<Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoritesImageCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image Grid.Column="0"
+                     Grid.Row="0"
+                     BackgroundColor="Transparent"
+                     HeightRequest="28"
+                     WidthRequest="28"
+                     Source="{Binding ., Converter={StaticResource ImagePathConverter }, ConverterParameter=SampleBrowser.SfListView.Favorites.png}">
+                            </Image>
+                        </Grid>-->
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfListView.RightSwipeTemplate>
+                    <syncfusion:SfListView.LeftSwipeTemplate>
+                        <DataTemplate >
+                            <Grid BackgroundColor="#009EDA" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <BoxView Color="Gray" HeightRequest="28" WidthRequest="28"/>
+                                <Label Text="查詢" TextColor="White" FontSize="30"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfListView.LeftSwipeTemplate>
+
+                </syncfusion:SfListView>
+            </Grid>
+
+        </pulltoRefresh:SfPullToRefresh.PullableContent>
+    </pulltoRefresh:SfPullToRefresh>
+
+</ContentPage>
